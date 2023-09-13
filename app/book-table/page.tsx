@@ -42,6 +42,7 @@ export default function BookTablePage() {
     defaultValues: {
       name: "",
       table: 'smoking',
+      date: new Date (new Date().getTime() + 1000 * 60 * 60 * 24),
     },
   })
 
@@ -170,7 +171,7 @@ export default function BookTablePage() {
                             selected={field.value}
                             onSelect={field.onChange}
                             disabled={(date) =>
-                              date > new Date() || date < new Date("1900-01-01")
+                             date < new Date()
                             }
                             initialFocus
                           />

@@ -2,7 +2,7 @@
 
 import Footer from '@/Footer'
 import Header from '@/components/Header'
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { useForm } from 'react-hook-form'
 import * as z from "zod"
@@ -19,6 +19,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { useReservation } from '@/context/ReservationContext'
+import { useRouter } from 'next/router'
+
+const phoneRegex = new RegExp(
+  /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+);
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -32,16 +38,19 @@ const formSchema = z.object({
   date: z.date({
     required_error: "A date of birth is required.",
   }),
-  phone: z.string().min(10, {}).max(10, {}),
+  phone: z.string().regex(phoneRegex, 'Invalid Number!'),
   // table: z.
 })
 
 export default function BookTablePage() {
+
+  const { addReservation } = useReservation()
+  const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      table: 'smoking',
+      table: 'non-smoking',
       date: new Date (new Date().getTime() + 1000 * 60 * 60 * 24),
     },
   })
@@ -49,7 +58,11 @@ export default function BookTablePage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
+    if(values.date){
+      values.date = format(values.date, "PPP")
+    }
+    addReservation(values)
+    router.push('/thank-you')
   }
 
   return (
@@ -199,9 +212,9 @@ export default function BookTablePage() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your name</FormLabel>
+                      <FormLabel>Your Phone number</FormLabel>
                       <FormControl>
-                        <Input placeholder="98X XXXX XXXX" {...field} />
+                        <Input type='tel' placeholder="98X XXXX XXXX" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

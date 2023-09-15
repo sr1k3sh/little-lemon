@@ -47,10 +47,10 @@ export default function Testimonial({}: Props) {
     <section className='w-full bg-secondary py-8'>
       <div className='container-full px-4 m-auto'>
         <h2 className='text-center font-bold font-serif text-2xl mb-6'>Testimonial</h2>
-        <div className='flex flex-row gap-8'>
+        <div className='flex flex-col sm:flex-row sm:flex-wrap gap-8'>
           {
             testimonials.map((testimonial, index) => (
-              <Card key={`testi-${index}`} className='w-[calc(100%/4__-__2rem)]'>
+              <Card key={`testi-${index}`} className='w-full sm:w-[calc(100%/2__-__1rem)] md:w-[calc(100%/4__-__2rem)]'>
                 <CardHeader className='p-0 overflow-hidden'>
                   <div className='relative aspect-square w-full overflow-hidden '>
                     <Image src={testimonial.image} className='object-cover' fill alt="Little Lemon Chicago"></Image>
@@ -64,11 +64,6 @@ export default function Testimonial({}: Props) {
                         <AiFillStar key={`star-${index}`} className=' text-yellow-300'/>
                       ))
                     }
-                    {/* <AiFillStar className=' text-yellow-300'/>
-                    <AiFillStar className=' text-yellow-300'/>
-                    <AiFillStar className=' text-yellow-300'/>
-                    <AiFillStar className=' text-yellow-300'/>
-                    <AiFillStar className=' text-yellow-300'/> */}
                   </span>
                   <p className='text-sm'>{testimonial.review}</p>
                 </CardContent>

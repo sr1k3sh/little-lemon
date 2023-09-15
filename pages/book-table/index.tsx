@@ -67,7 +67,7 @@ export default function BookTablePage() {
 
   return (
     <>
-      <Header></Header>
+      {/* <Header></Header> */}
       <main className="flex min-h-screen flex-col justify-center">
         <section className='py-8'>
           <div className='container m-auto'>

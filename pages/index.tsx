@@ -1,11 +1,11 @@
 'use client'
 
 import Footer from '@/components/Footer'
-import About from '@/components/About'
-import Banner from '@/components/Banner'
 import Header from '@/components/Header'
 import Special from '@/components/Special'
 import Testimonial from '@/components/Testimonial'
+import Banner from '@/Banner/Banner'
+import About from '@/About/About'
 
 export default function Home() {
   return (

@@ -1,7 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import React from 'react'
-import { Button } from './ui/button'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
+import { Button } from '@/components/ui/button'
 
 type Props = {}
 
@@ -9,7 +11,7 @@ export default function Banner({}: Props) {
   const router = useRouter()
 
   const onPressReserveTable = () => {
-    router.push('/book-table')
+    router && router.push('/book-table')
   }
 
   return (

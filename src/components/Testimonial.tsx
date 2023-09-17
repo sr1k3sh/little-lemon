@@ -44,20 +44,14 @@ const testimonials = [
 
 export default function Testimonial({}: Props) {
   return (
-    <section className='w-full bg-secondary py-8'>
-      <div className='container-full px-4 m-auto'>
-        <h2 className='text-center font-bold font-serif text-2xl mb-6'>Testimonial</h2>
-        <div className='flex flex-col sm:flex-row sm:flex-wrap gap-8'>
+    <section className='w-full bg-secondary-foreground py-16 md:py-32'>
+      <div className='container m-auto'>
+        <h2 className='text-center font-bold font-serif text-3xl mb-6'>Testimonial</h2>
+        <div className='flex flex-col sm:flex-row sm:flex-wrap justify-between gap-2'>
           {
             testimonials.map((testimonial, index) => (
-              <Card key={`testi-${index}`} className='w-full sm:w-[calc(100%/2__-__1rem)] md:w-[calc(100%/4__-__2rem)]'>
-                <CardHeader className='p-0 overflow-hidden'>
-                  <div className='relative aspect-square w-full overflow-hidden '>
-                    <Image src={testimonial.image} className='object-cover' fill alt="Little Lemon Chicago"></Image>
-                  </div>
-                </CardHeader>
-                <CardContent className='p-4'>
-                  <h3 className='text-xl font-semibold mb-1'>{testimonial.name}</h3>
+              <Card key={`testi-${index}`} className='w-full sm:w-[calc(100%/2__-__1rem)] md:w-[calc(100%/4__-__0.5rem)]'>
+                <CardHeader className='p-4 pb-0 overflow-hidden'>
                   <span className='flex flex-row gap-1 mb-2'>
                     {
                       testimonial.rating && Array.from(Array(testimonial.rating)).map((_, index) => (
@@ -65,7 +59,15 @@ export default function Testimonial({}: Props) {
                       ))
                     }
                   </span>
-                  <p className='text-sm'>{testimonial.review}</p>
+                  <div className='flex flex-row items-center'>
+                    <div className='relative aspect-square w-1/3 overflow-hidden '>
+                      <Image src={testimonial.image} className='object-cover rounded-xl' fill alt="Little Lemon Chicago"></Image>
+                    </div>
+                    <h3 className='text-base font-medium mb-1 text-primary-foreground w-2/3 ms-2'>{testimonial.name}</h3>
+                  </div>
+                </CardHeader>
+                <CardContent className='pt-0 p-4'>
+                  <p className='text-sm text-secondary'>{testimonial.review}</p>
                 </CardContent>
               </Card>
             ))

@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/popover"
 import { useReservation } from '@/context/ReservationContext'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
@@ -67,13 +68,20 @@ export default function BookTablePage() {
 
   return (
     <>
-      {/* <Header></Header> */}
+      <Header></Header>
       <main className="flex min-h-screen flex-col justify-center">
+        <section>
+          <div className='container-full'>
+            <div className='h-96 relative'>
+              <Image src="/cheif.jpg" className='w-full h-full object-cover' alt="book a table" fill></Image>
+            </div>
+          </div>
+        </section>
         <section className='py-8'>
           <div className='container m-auto'>
             <h1 className='uppercase text-3xl font-bold'>Book a table</h1>
             <p className='mb-8'>Please set the table based on your requirements</p>
-            <div className='bg-secondary p-4 rounded-xl'>
+            <div className=''>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                   <FormField

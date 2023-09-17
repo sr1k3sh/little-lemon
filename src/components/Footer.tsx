@@ -15,17 +15,17 @@ export default function Footer({}: Props) {
           </div>
           <div className='flex flex-col w-full items-center sm:items-start sm:w-1/4'>
             <h3 className='text-base text-primary-foreground text-bold mb-2'>Doormat Navigation</h3>
-            <nav className='flex flex-col text-center'>
-              <Link href='/'><span className='font-medium text-sm text-primary-foreground'>Home</span></Link>
-              <Link href='/book-table'><span className='font-medium text-sm text-primary-foreground'>About</span></Link>
-              <Link href='/menu'><span className='font-medium text-sm text-primary-foreground'>Reservations</span></Link>
-              <Link href='/about'><span className='font-medium text-sm text-primary-foreground'>Order Online</span></Link>
-              <Link href='/login'><span className='font-medium text-sm text-primary-foreground'>Login</span></Link>
+            <nav className='flex flex-col text-center sm:text-left'>
+              <Link href='/'><span className='font-medium text-sm text-primary-foreground hover:font-bold'>Home</span></Link>
+              <Link href='/book-table'><span className='font-medium text-sm text-primary-foreground hover:font-bold'>About</span></Link>
+              <Link href='/menu'><span className='font-medium text-sm text-primary-foreground hover:font-bold'>Reservations</span></Link>
+              <Link href='/about'><span className='font-medium text-sm text-primary-foreground hover:font-bold'>Order Online</span></Link>
+              <Link href='/login'><span className='font-medium text-sm text-primary-foreground hover:font-bold'>Login</span></Link>
             </nav>
           </div>
           <div className='flex flex-col w-full items-center sm:items-start sm:w-1/4'>
             <h3 className='text-base text-primary-foreground text-bold mb-2'>Contact</h3>
-            <ul className='text-center'>
+            <ul className='text-center sm:text-left '>
               <li className='text-sm text-primary-foreground'>+1 234 567 890</li>
               <li className='text-sm text-primary-foreground'>Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016</li>
               <li className='text-sm text-primary-foreground'>test@test.com</li>
@@ -33,7 +33,7 @@ export default function Footer({}: Props) {
           </div>
           <div className='flex flex-col w-full items-center sm:items-start sm:w-1/4'>
             <h3 className='text-base text-primary-foreground text-bold mb-2'>Social Media Links</h3>
-            <ul className='flex flex-row items-center gap-4'>
+            <ul className='flex flex-row items-center sm:items-start gap-4'>
               <li className='text-sm text-primary-foreground'><Link href="/"><Facebook size={16}></Facebook></Link></li>
               <li className='text-sm text-primary-foreground'><Link href="/"><Instagram size={16}/></Link></li>
               <li className='text-sm text-primary-foreground'><Link href="/"><Twitter size={16}/></Link></li>

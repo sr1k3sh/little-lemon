@@ -41,7 +41,7 @@ export default function Special({}: Props) {
               menuItems.map((menu,index) => (
                 <Card key={`menu-${index}`} className='w-full md:w-[calc(100%/3_-_1rem)] rounded-b-none bg-secondary-foreground'>
                   <CardHeader className='relative overflow-hidden aspect-square'>
-                    <Image className='object-cover rounded-t-lg' src={menu.imageSrc} fill alt="Little Lemon Chicago"></Image>
+                    <Image className='object-cover rounded-t-lg' src={menu.imageSrc} fill alt={menu.description}></Image>
                   </CardHeader>
                   <CardContent className='p-4'>
                     <div className='flex flex-row justify-between items-center'>
@@ -53,7 +53,7 @@ export default function Special({}: Props) {
                       <span className='flex flex-row items-center text-sm mt-4 font-semibold hover:text-accent'>
                         Order a delivery
                         <div className='ms-2'>
-                          <Image src="/scooter.svg" width={16} height={16} alt="order for delivery"></Image>
+                          <Image src="/scooter.svg" width={16} height={16} alt={menu.name}></Image>
                         </div>
                       </span>
                     </Link>

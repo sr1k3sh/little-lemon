@@ -61,7 +61,7 @@ export default function Testimonial({}: Props) {
                   </span>
                   <div className='flex flex-row items-center'>
                     <div className='relative aspect-square w-1/3 overflow-hidden '>
-                      <Image src={testimonial.image} className='object-cover rounded-xl' fill alt="Little Lemon Chicago"></Image>
+                      <Image src={testimonial.image} className='object-cover rounded-xl' fill alt={testimonial.review}></Image>
                     </div>
                     <h3 className='text-base font-medium mb-1 text-primary-foreground w-2/3 ms-2'>{testimonial.name}</h3>
                   </div>

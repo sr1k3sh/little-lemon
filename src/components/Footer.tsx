@@ -34,9 +34,9 @@ export default function Footer({}: Props) {
           <div className='flex flex-col w-full items-center sm:items-start sm:w-1/4'>
             <h3 className='text-base text-primary-foreground text-bold mb-2'>Social Media Links</h3>
             <ul className='flex flex-row items-center sm:items-start gap-4'>
-              <li className='text-sm text-primary-foreground'><Link href="/"><Facebook size={16}></Facebook></Link></li>
-              <li className='text-sm text-primary-foreground'><Link href="/"><Instagram size={16}/></Link></li>
-              <li className='text-sm text-primary-foreground'><Link href="/"><Twitter size={16}/></Link></li>
+              <li className='text-sm text-primary-foreground'><Link href="/" aria-label='facebook'><Facebook size={16}></Facebook></Link></li>
+              <li className='text-sm text-primary-foreground'><Link href="/" aria-label='instagram'><Instagram size={16}/></Link></li>
+              <li className='text-sm text-primary-foreground'><Link href="/" aria-label='twitter'><Twitter size={16}/></Link></li>
             </ul>
           </div>
         </div>
